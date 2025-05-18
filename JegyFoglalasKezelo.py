@@ -1,0 +1,2 @@
+class JegyFoglalasKezelo:
+    pass
