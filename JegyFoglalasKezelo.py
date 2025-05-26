@@ -18,7 +18,8 @@ class JegyFoglalasKezelo:
 
     def jegy_listazas(self):
         for jegy in self.jegyek:
-            print(jegy.get_utas(), jegy.get_foglalasID(), jegy.get_jaratdatum())
+            if not jegy.get_status():
+                print("Utas:",jegy.get_utas(),"| Jegy azonosító: " , jegy.get_foglalasID(),"| Dátum: ", jegy.get_jaratdatum()," | Célállomás: ", jegy.jarat_indulas.get_cel())
 
     def jegy_kereses(self, id):
         for jegy in self.jegyek:

@@ -83,7 +83,8 @@ laJarat = global_menetrend.jarat_kereso("Ljubljana", "2025-09-24")
 n_cancell = global_jegyek.jegy_kereses(9)
 #jegyfoglalás inaktiválása
 n_cancell.lemondas()
-print(n_cancell.get_status())
+#print(n_cancell.get_status())
 
 
 #listáz
+global_jegyek.jegy_listazas()

@@ -18,14 +18,11 @@ class JegyFoglalas:
         return self.foglalasID
 
     def get_jaratdatum(self):
-        return self.datum()
+        return self.datum
 
     def foglalas(self, jaratszam, datum):
         global_menetrend.jarat_kereso(jaratszam, datum).jaratfoglalas()
         return self
-
-    """def lemondas(self, jaratszam, datum):
-        global_menetrend.jarat_kereso(jaratszam, datum).jaratfoglalastorles()"""
 
     def lemondas(self):
         if not self.lemondva:
