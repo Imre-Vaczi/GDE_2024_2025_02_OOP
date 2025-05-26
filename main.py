@@ -66,8 +66,8 @@ n = JegyFoglalas(laJarat, "Imre Kertész", "2025-09-24")
 laJarat.jaratfoglalas()
 #jegy jegyekhez adasa
 global_jegyek.jegy_hozzaadas(n)
-#ar visszaadása - pimpelni kell
-laJarat.get_jaratar()
+#ar visszaadása
+print(laJarat.get_jaratar())
 #jegy ID visszaadása - pimpelni kell
 n.get_foglalasID()
 #tracking - sztem nem kell majd

@@ -16,7 +16,7 @@ class JaratIndulas:
         return self.cel
 
     def get_jaratar(self):
-        return self.jarat.get_jegyar()
+        return f"Jegy ára: {self.jarat.get_jegyar()} HUF"
 
     def get_datum(self):
         return self.datum
