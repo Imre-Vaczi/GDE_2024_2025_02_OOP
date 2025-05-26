@@ -8,16 +8,16 @@ class LegiTarsasag:
     def jarat_hozzaadas(self, jarat):
         if jarat not in self.jaratok:
             self.jaratok.append(jarat)
-            print("Járat hozzáadva a járatok listájához.")
-        else:
-            print( "Járat már szerepelt a járatok listájában.")
+            #print("Bemenet hozzáadva a járatokhoz.")
+        #else:
+            #print( "Bemenet már szerepelt a járatok között.")
 
     def jarat_torlese(self, jarat):
         if jarat in self.jaratok:
             self.jaratok.remove(jarat)
-            print("Járat törölve")
-        else:
-            print("A törlendő járat nem szerepel a járatok listájában.")
+            #print("Járat törölve")
+        #else:
+            #print("A törlendő járat nem szerepel a listában.")
 
     def jarat_listazas(self):
         for jarat in self.jaratok:

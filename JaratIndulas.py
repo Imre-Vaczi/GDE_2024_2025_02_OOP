@@ -1,3 +1,5 @@
+from Jarat import Jarat
+
 class JaratIndulas:
 
     def __init__(self, datum, jarat):
@@ -5,9 +7,16 @@ class JaratIndulas:
         self.jarat = jarat
         self.foglalasok = 0
         self.kapacitas = jarat.get_kapacitas()
+        self.cel = self.jarat.get_celallomas()
 
     def jaratszam(self):
         return self.jarat.get_jaratszam()
+
+    def get_cel(self):
+        return self.cel
+
+    def get_jaratar(self):
+        return self.jarat.get_jegyar()
 
     def get_datum(self):
         return self.datum

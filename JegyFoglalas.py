@@ -11,8 +11,29 @@ class JegyFoglalas:
         self.datum = datum
         self.lemondva = False
 
+    def get_utas(self):
+        return self.utas
+
+    def get_foglalasID(self):
+        return self.foglalasID
+
+    def get_jaratdatum(self):
+        return self.datum()
+
     def foglalas(self, jaratszam, datum):
         global_menetrend.jarat_kereso(jaratszam, datum).jaratfoglalas()
+        return self
 
-    def lemondas(self, jaratszam, datum):
-        global_menetrend.jarat_kereso(jaratszam, datum).jaratfoglalastorles()
+    """def lemondas(self, jaratszam, datum):
+        global_menetrend.jarat_kereso(jaratszam, datum).jaratfoglalastorles()"""
+
+    def lemondas(self):
+        if not self.lemondva:
+            self.jarat_indulas.jaratfoglalastorles()
+            self.lemondva = True
+        else:
+            print("Hiba: jegy már lemondva.")
+        return self
+
+    def get_status(self):
+        return self.lemondva

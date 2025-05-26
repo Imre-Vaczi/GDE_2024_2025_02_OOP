@@ -9,16 +9,19 @@ class Menetrend:
 
     def hozzaad_indulas(self, jarat_indulas):
         self.indulasok.append(jarat_indulas)
+        return self
 
     def torol_indulas(self, jarat_indulas):
         self.indulasok.remove(jarat_indulas)
+        return self
 
     def listaz_indulasok(self):
-        return self.indulasok
+        for n in global_menetrend:
+            pass
 
-    def jarat_kereso(self, jaratiD, datum):
-        for jarat in global_menetrend:
-            if jarat.jaratszam() == jaratiD and jarat.get_datum() == datum:
+    def jarat_kereso(self, destination, datum):
+        for jarat in self.indulasok:
+            if jarat.get_cel() == destination and jarat.get_datum() == datum:
                 return jarat
 
 global_menetrend = Menetrend()
