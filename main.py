@@ -5,7 +5,6 @@ from JaratIndulas import JaratIndulas
 from JegyFoglalas import JegyFoglalas
 from JegyFoglalasKezelo import JegyFoglalasKezelo, global_jegyek
 
-
 tarsasag = LegiTarsasag("Random Air Zrt.")
 
 bj01 = JaratGyar().jarat_letrehozas("belfoldijarat","RTG254","Szeged",10000,15)
@@ -88,3 +87,7 @@ n_cancell.lemondas()
 
 #listáz
 global_jegyek.jegy_listazas()
+
+#interface
+print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében")
+print("Kérjük válaszzon az alábbi menüpontokból:")

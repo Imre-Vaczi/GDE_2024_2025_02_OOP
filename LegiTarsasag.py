@@ -22,3 +22,6 @@ class LegiTarsasag:
     def jarat_listazas(self):
         for jarat in self.jaratok:
             print(jarat.get_celallomas(), jarat.get_jaratszam())
+
+    def get_vallalat(self):
+        return self.vallalat
