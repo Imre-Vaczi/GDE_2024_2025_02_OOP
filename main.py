@@ -113,6 +113,10 @@ while True:
         utazo = input("Utas neve (keresztnév vezetéknév): ")
         laJarat = global_menetrend.jarat_kereso(celallomas, indulas)
 
+        if laJarat is None:
+            print("Nem található járat a megadott célállomás és vagy dátum paraméterekkel")
+            continue
+
         if laJarat.foglalhato():
             n = JegyFoglalas(laJarat, utazo, indulas)
             laJarat.jaratfoglalas()
