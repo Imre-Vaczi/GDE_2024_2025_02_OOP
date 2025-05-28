@@ -91,7 +91,7 @@ global_jegyek.jegy_listazas()
 """
 
 print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében!\n")
-menu = "\nKérjük válaszzon az alábbi menüpontokból:\n1. Foglalás\n2. Lemondás\n3. Listázás\n0. Kilépés\n"
+menu = "\nKérjük válasszon az alábbi menüpontokból:\n1. Foglalás\n2. Lemondás\n3. Listázás\n0. Kilépés\n"
 
 #interface
 
@@ -128,7 +128,7 @@ while True:
     elif bemenet == 2:
         print("lemondás")
     elif bemenet == 3:
-        nev = input("Utas neve: keresztnév utónév ")
+        nev = input("Utas neve (keresztnév utónév): ")
         global_jegyek.jegy_listazas(nev)
     else:
         print("Érvénytelen bevitel.")
