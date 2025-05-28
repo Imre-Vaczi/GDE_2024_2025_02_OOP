@@ -28,7 +28,7 @@ class JaratIndulas:
             print("Járat megtelt, foglalás sikertelen.")
 
     def jaratfoglalastorles(self):
-        if self.foglalasok > 1:
+        if self.foglalasok > 0:
             self.foglalasok -= 1
         else:
             print("Járat üres, foglalás törlése nem értelmezett.")

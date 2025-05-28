@@ -15,7 +15,7 @@ class JegyFoglalas:
         return self.utas
 
     def get_foglalasID(self):
-        return f"Foglalási azonosító: {self.foglalasID}"
+        return self.foglalasID
 
     def get_jaratdatum(self):
         return self.datum
@@ -26,11 +26,11 @@ class JegyFoglalas:
 
     def lemondas(self):
         if not self.lemondva:
-            self.jarat_indulas.jaratfoglalastorles()
             self.lemondva = True
+            self.jarat_indulas.jaratfoglalastorles()
         else:
             print("Hiba: jegy már lemondva.")
-        return self
+        return False
 
     def get_status(self):
         return self.lemondva

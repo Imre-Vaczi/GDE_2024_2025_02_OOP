@@ -56,23 +56,6 @@ indulas8.jaratfoglalas()
 #testing some of the methods
 
 """
-#foglal - input: cel & datum | nev a jegyfoglaláshoz
-#jarat kikeresése
-laJarat = global_menetrend.jarat_kereso("Ljubljana", "2025-09-24")
-laJarat.foglalhato()
-#jegyfoglalás létrehozása
-n = JegyFoglalas(laJarat, "Imre Kertész", "2025-09-24")
-#jarat telitettség növelése
-laJarat.jaratfoglalas()
-#jegy jegyekhez adasa
-global_jegyek.jegy_hozzaadas(n)
-#ar visszaadása
-print(laJarat.get_jaratar())
-#jegy ID visszaadása - pimpelni kell
-n.get_foglalasID()
-#tracking - sztem nem kell majd
-#print(laJarat.szabadhelyek())
-#print(len(global_jegyek.jegyek))
 
 #lemond - input: cel & datum
 #jaratindulas kikeresése
@@ -85,9 +68,6 @@ n_cancell = global_jegyek.jegy_kereses(9)
 n_cancell.lemondas()
 #print(n_cancell.get_status())
 
-
-#listáz
-global_jegyek.jegy_listazas()
 """
 
 print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében!\n")
@@ -126,9 +106,20 @@ while True:
         else:
             print("Foglalás nem lehetséges.")
     elif bemenet == 2:
-        print("lemondás")
+        celallomas = input("Célállomás: ")
+        indulas = input("Indulás dátuma (éééé-hh-nn): ").replace(".", "-")
+        utazo = input("Utas neve (keresztnév vezetéknév): ")
+        id = int(input("Foglalási azonosító: "))
+        laJarat = global_menetrend.jarat_kereso(celallomas, indulas)
+        n_cancell = global_jegyek.jegy_kereses(id)
+
+        n_cancell.lemondas()
+        laJarat.jaratfoglalastorles()
+
+        print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
+
     elif bemenet == 3:
-        nev = input("Utas neve (keresztnév utónév): ")
+        nev = input("Listázandó foglalások utasának neve (keresztnév utónév): ")
         global_jegyek.jegy_listazas(nev)
     else:
         print("Érvénytelen bevitel.")
