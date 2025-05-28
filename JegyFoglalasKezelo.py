@@ -16,9 +16,14 @@ class JegyFoglalasKezelo:
     def jegy_torles(self, jegy: JegyFoglalas):
         self.jegyek.remove(jegy)
 
-    def jegy_listazas(self):
+    """def jegy_listazas(self):
         for jegy in self.jegyek:
             if not jegy.get_status():
+                print("Utas:",jegy.get_utas(),"| Jegy azonosító: " , jegy.get_foglalasID(),"| Dátum: ", jegy.get_jaratdatum()," | Célállomás: ", jegy.jarat_indulas.get_cel())
+    """
+    def jegy_listazas(self, utas_nev):
+        for jegy in self.jegyek:
+            if not jegy.get_status() and jegy.get_utas() == utas_nev:
                 print("Utas:",jegy.get_utas(),"| Jegy azonosító: " , jegy.get_foglalasID(),"| Dátum: ", jegy.get_jaratdatum()," | Célállomás: ", jegy.jarat_indulas.get_cel())
 
     def jegy_kereses(self, id):

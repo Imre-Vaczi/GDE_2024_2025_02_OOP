@@ -108,11 +108,24 @@ while True:
         print("Köszönjük, hogy Ügyfélszolgálati rendszerünket választotta.\n")
         break
     elif bemenet == 1:
-        print("foglalás")
+        celallomas = input("Célállomás: ")
+        indulas = input("Indulás dátuma (éééé-hh-nn): ")
+        utazo = input("Utas neve (keresztnév vezetéknév): ")
+        laJarat = global_menetrend.jarat_kereso(celallomas, indulas)
+
+        if laJarat.foglalhato():
+            n = JegyFoglalas(laJarat, utazo, indulas)
+            laJarat.jaratfoglalas()
+            global_jegyek.jegy_hozzaadas(n)
+            print(f"\nA foglalás sikeres. További részletek:\n{laJarat.get_jaratar()} | {n.get_foglalasID()}")
+
+        else:
+            print("Foglalás nem lehetséges.")
     elif bemenet == 2:
         print("lemondás")
     elif bemenet == 3:
-        global_jegyek.jegy_listazas()
+        nev = input("Utas neve: keresztnév utónév ")
+        global_jegyek.jegy_listazas(nev)
     else:
         print("Érvénytelen bevitel.")
 

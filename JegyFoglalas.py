@@ -15,7 +15,7 @@ class JegyFoglalas:
         return self.utas
 
     def get_foglalasID(self):
-        return self.foglalasID
+        return f"Foglalási azonosító: {self.foglalasID}"
 
     def get_jaratdatum(self):
         return self.datum
