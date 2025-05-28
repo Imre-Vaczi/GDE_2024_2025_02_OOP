@@ -23,5 +23,6 @@ class Menetrend:
         for jarat in self.indulasok:
             if jarat.get_cel() == destination and jarat.get_datum() == datum:
                 return jarat
+        return None
 
 global_menetrend = Menetrend()
