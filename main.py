@@ -55,6 +55,7 @@ global_jegyek.jegy_hozzaadas(JegyFoglalas(indulas8, "Péter Nádas", "2025-09-24
 indulas8.jaratfoglalas()
 #testing some of the methods
 
+"""
 #foglal - input: cel & datum | nev a jegyfoglaláshoz
 #jarat kikeresése
 laJarat = global_menetrend.jarat_kereso("Ljubljana", "2025-09-24")
@@ -87,7 +88,33 @@ n_cancell.lemondas()
 
 #listáz
 global_jegyek.jegy_listazas()
+"""
+
+print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében!\n")
+menu = "\nKérjük válaszzon az alábbi menüpontokból:\n1. Foglalás\n2. Lemondás\n3. Listázás\n0. Kilépés\n"
 
 #interface
-print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében")
-print("Kérjük válaszzon az alábbi menüpontokból:")
+
+while True:
+    print(menu)
+    bemenet =  input("Kiválasztott menüpont: \n")
+
+    try:
+        bemenet = int(bemenet)
+    except ValueError:
+        print("Hiba: Kérjük, hogy számot adjon meg (0-3)!\n")
+
+    if bemenet == 0:
+        print("Köszönjük, hogy Ügyfélszolgálati rendszerünket választotta.\n")
+        break
+    elif bemenet == 1:
+        print("foglalás")
+    elif bemenet == 2:
+        print("lemondás")
+    elif bemenet == 3:
+        global_jegyek.jegy_listazas()
+    else:
+        print("Érvénytelen bevitel.")
+
+
+
