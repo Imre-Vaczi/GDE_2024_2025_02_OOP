@@ -109,7 +109,7 @@ while True:
         break
     elif bemenet == 1:
         celallomas = input("Célállomás: ")
-        indulas = input("Indulás dátuma (éééé-hh-nn): ")
+        indulas = input("Indulás dátuma (éééé-hh-nn): ").replace(".", "-")
         utazo = input("Utas neve (keresztnév vezetéknév): ")
         laJarat = global_menetrend.jarat_kereso(celallomas, indulas)
 
