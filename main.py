@@ -5,6 +5,26 @@ from JaratIndulas import JaratIndulas
 from JegyFoglalas import JegyFoglalas
 from JegyFoglalasKezelo import JegyFoglalasKezelo, global_jegyek
 
+"""
+Járatadatok teszteléshez
+
+Szeged
+2025-08-01
+2025-09-01
+
+Pécs
+2025-08-14
+2025-09-14
+
+Triest
+2025-08-05
+2025-09-05
+
+Ljubljana
+2025-08-24
+2025-09-24
+"""
+
 #setup data
 
 tarsasag = LegiTarsasag("Random Air Zrt.")
@@ -107,17 +127,9 @@ while True:
             print("Nem található ilyen azonosítójú foglalás!")
             continue
 
-        if n_cancell.lemondas():  # Itt történik a tényleges lemondás
-            print("A foglalás sikeresen lemondva!")
-        else:
-            print("A lemondás sikertelen.")
-
-
-
-        #n_cancell.lemondas()
-        #laJarat.jaratfoglalastorles()
-
-        #print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
+        n_cancell.lemondas()
+        laJarat.jaratfoglalastorles()
+        print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
 
 
 
@@ -127,23 +139,3 @@ while True:
         global_jegyek.jegy_listazas(nev)
     else:
         print("Érvénytelen bevitel.")
-
-"""
-Járatadatok teszteléshez
-
-Szeged
-2025-08-01
-2025-09-01
-
-Pécs
-2025-08-14
-2025-09-14
-
-Triest
-2025-08-05
-2025-09-05
-
-Ljubljana
-2025-08-24
-2025-09-24
-"""
