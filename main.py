@@ -107,7 +107,7 @@ while True:
             n = JegyFoglalas(laJarat, utazo, indulas)
             laJarat.jaratfoglalas()
             global_jegyek.jegy_hozzaadas(n)
-            print(f"\nA foglalás sikeres. További részletek:\n{laJarat.get_jaratar()} | {n.get_foglalasID()}")
+            print(f"\nA foglalás sikeres. További részletek:\n{laJarat.get_jaratar()} | Foglalási azonosító: {n.get_foglalasID()}")
 
         else:
             print("Foglalás nem lehetséges.")
