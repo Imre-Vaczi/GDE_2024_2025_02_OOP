@@ -128,7 +128,6 @@ while True:
             continue
 
         n_cancell.lemondas()
-        laJarat.jaratfoglalastorles()
         print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
 
 
