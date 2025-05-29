@@ -5,6 +5,8 @@ from JaratIndulas import JaratIndulas
 from JegyFoglalas import JegyFoglalas
 from JegyFoglalasKezelo import JegyFoglalasKezelo, global_jegyek
 
+#setup data
+
 tarsasag = LegiTarsasag("Random Air Zrt.")
 
 bj01 = JaratGyar().jarat_letrehozas("belfoldijarat","RTG254","Szeged",10000,15)
@@ -53,27 +55,11 @@ global_jegyek.jegy_hozzaadas(JegyFoglalas(indulas7, "György Dragomán", "2025-0
 indulas7.jaratfoglalas()
 global_jegyek.jegy_hozzaadas(JegyFoglalas(indulas8, "Péter Nádas", "2025-09-24"))
 indulas8.jaratfoglalas()
-#testing some of the methods
 
-"""
-
-#lemond - input: cel & datum
-#jaratindulas kikeresése
-laJarat = global_menetrend.jarat_kereso("Ljubljana", "2025-09-24")
-#jaratindulas telitettségének csökkentése
-#print(laJarat.szabadhelyek())
-#jegyfoglalas kikeresése - input az ID - itt 9
-n_cancell = global_jegyek.jegy_kereses(9)
-#jegyfoglalás inaktiválása
-n_cancell.lemondas()
-#print(n_cancell.get_status())
-
-"""
+#interface
 
 print(f"Üdvözöljük a {tarsasag.get_vallalat()} rendszerében!\n")
 menu = "\nKérjük válasszon az alábbi menüpontokból:\n1. Foglalás\n2. Lemondás\n3. Listázás\n0. Kilépés\n"
-
-#interface
 
 while True:
     print(menu)
@@ -111,12 +97,30 @@ while True:
         utazo = input("Utas neve (keresztnév vezetéknév): ")
         id = int(input("Foglalási azonosító: "))
         laJarat = global_menetrend.jarat_kereso(celallomas, indulas)
+
+        if laJarat is None:
+            print("Nem található ilyen járat!")
+            continue
+
         n_cancell = global_jegyek.jegy_kereses(id)
+        if n_cancell is None:
+            print("Nem található ilyen azonosítójú foglalás!")
+            continue
 
-        n_cancell.lemondas()
-        laJarat.jaratfoglalastorles()
+        if n_cancell.lemondas():  # Itt történik a tényleges lemondás
+            print("A foglalás sikeresen lemondva!")
+        else:
+            print("A lemondás sikertelen.")
 
-        print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
+
+
+        #n_cancell.lemondas()
+        #laJarat.jaratfoglalastorles()
+
+        #print(f"\n{utazo} {id} számú foglalásának törlése sikeresen megtörtént.")
+
+
+
 
     elif bemenet == 3:
         nev = input("Listázandó foglalások utasának neve (keresztnév utónév): ")
@@ -124,5 +128,22 @@ while True:
     else:
         print("Érvénytelen bevitel.")
 
+"""
+Járatadatok teszteléshez
 
+Szeged
+2025-08-01
+2025-09-01
 
+Pécs
+2025-08-14
+2025-09-14
+
+Triest
+2025-08-05
+2025-09-05
+
+Ljubljana
+2025-08-24
+2025-09-24
+"""
